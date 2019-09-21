@@ -1,2 +1,1 @@
-# MiraDesign
-Web App about interior design agency
+Web Application about interior design company
