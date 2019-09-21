@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <UserSecretsId>aspnet-MiraDesign.Web-9972780F-C0C7-41EC-AD82-932CC1292E7B</UserSecretsId>
+    <UserSecretsId>aspnet-MiraDesign.Web-710F8585-A7FF-4615-B15E-213A34CB9178</UserSecretsId>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
