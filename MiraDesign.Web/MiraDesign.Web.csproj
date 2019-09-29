@@ -8,6 +8,7 @@
 
 
   <ItemGroup>
+    <PackageReference Include="Font.Awesome" Version="5.11.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
@@ -16,6 +17,13 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\css\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\MiraDesign.Data\MiraDesign.Data.csproj" />
+    <ProjectReference Include="..\MiraDesign.Models\MiraDesign.Models.csproj" />
+    <ProjectReference Include="..\MiraDesign.Services\MiraDesign.Services.csproj" />
   </ItemGroup>
 
 </Project>
