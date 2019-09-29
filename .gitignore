@@ -328,3 +328,5 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+/MiraDesign.Web/appsettings.Development.json
+/MiraDesign.Web/appsettings.json
