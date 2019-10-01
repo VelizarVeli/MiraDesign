@@ -1,75 +1,21 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="shortcut icon" href="favicon.ico" />
     <title>@ViewData["Title"] - MiraDesign</title>
     <environment include="Development">
         <link href="~/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/font-awesome.min.css" />
-        <!-- Custom Theme files -->
-        <script src="~/js/jquery.min.js"></script>
-        <!--theme-style-->
-        <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-        <!--//theme-style-->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-
-        <script src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/move-top.js"></script>
-        <script type="text/javascript" src="js/easing.js"></script>
-        <script type="text/javascript">
-            jQuery(document).ready(function ($) {
-                $(".scroll").click(function (event) {
-                    event.preventDefault();
-                    $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
-                });
-            });
-        </script>
-        <!----start-top-nav-script---->
-
-        <script type="text/javascript" src="js/modernizr.custom.js"></script>
-        <!--animate-->
-        <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
-        <script src="js/wow.min.js"></script>
-        <script>
-            new WOW().init();
-        </script>
-        <!--//end-animate-->
+        <link href="~/css/style.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="~/css/animate.css" rel="stylesheet" type="text/css" media="all">
     </environment>
     <environment exclude="Development">
         <link href="~/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-        <!-- Custom Theme files -->
-        <script src="~/js/jquery.min.js"></script>
-        <!--theme-style-->
-        <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-        <!--//theme-style-->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-
-        <script src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/move-top.js"></script>
-        <script type="text/javascript" src="js/easing.js"></script>
-        <script type="text/javascript">
-            jQuery(document).ready(function ($) {
-                $(".scroll").click(function (event) {
-                    event.preventDefault();
-                    $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
-                });
-            });
-        </script>
-        <!----start-top-nav-script---->
-
-        <script type="text/javascript" src="js/modernizr.custom.js"></script>
-        <!--animate-->
-        <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
-        <script src="js/wow.min.js"></script>
-        <script>
-            new WOW().init();
-        </script>
-        <!--//end-animate-->
+        <link href="~/css/style.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="~/css/style.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="~/css/animate.css" rel="stylesheet" type="text/css" media="all">
     </environment>
 </head>
 <body>
@@ -84,26 +30,57 @@
         </div>
     </footer>
     <environment include="Development">
+        <script src="~/js/jquery.min.js"></script>
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/move-top.js"></script>
+        <script type="text/javascript" src="js/easing.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+                });
+            });
+        </script>
+        <script type="text/javascript" src="js/modernizr.custom.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script>
+            new WOW().init();
+        </script>
+        <!--//end-animate-->
         <script type="text/javascript">
             $(document).ready(function () {
-
                 var defaults = {
                     containerID: 'toTop', // fading element id
                     containerHoverID: 'toTopHover', // fading element hover id
                     scrollSpeed: 1200,
                     easingType: 'linear'
                 };
-
-
                 $().UItoTop({ easingType: 'easeOutQuart' });
-
             });
         </script>
         <a href="#" id="toTop" class="agileits w3layouts" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-
-
     </environment>
     <environment exclude="Development">
+        <script src="~/js/jquery.min.js"></script>
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/move-top.js"></script>
+        <script type="text/javascript" src="js/easing.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+                });
+            });
+        </script>
+        <script type="text/javascript" src="js/modernizr.custom.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script>
+            new WOW().init();
+        </script>
         <script type="text/javascript">
             $(document).ready(function () {
                 /*
@@ -114,16 +91,11 @@
                     easingType: 'linear'
                  };
                 */
-
                 $().UItoTop({ easingType: 'easeOutQuart' });
-
             });
         </script>
         <a href="#" id="toTop" class="agileits w3layouts" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-
-
     </environment>
-
     @RenderSection("Scripts", required: false)
 </body>
 </html>

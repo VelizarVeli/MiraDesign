@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Project Details";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="header agileits w3layouts header-head" id="home">
+    <div class="container">
+        <div class="head">
+            <nav class="navbar agileits w3layouts navbar-default">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button agileits w3layouts" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar agileits w3layouts"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar agileits w3layouts"></span>
+                    </button>
+                    <div class="navbar-brand agileits w3layouts logo wow fadeInLeft animated" data-wow-delay=".5s">
+                        <h1><a asp-area="" asp-controller="Home" asp-action="Index"><span>M<br>I<br>R<br>A<br></span>D<br>E<br>S<br>I<br>G<br>N<br></a></h1>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse nav-wil agileits w3layouts" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav wow fadeInDown agileits w3layouts animated" data-wow-delay=".5s">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index"><span data-hover="Home">Начало</span></a> </li>
+                    </ul>
+                </div>
+            </nav>
+
+        </div>
+
+    </div>
+</div>
+<!--content-->
+<!--content-->
+<div class="single agileits w3layouts">
+    <div class="container">
+
+        <div class="single-top">
+            <img class="img-responsive wow fadeInUp agileits w3layouts animated" data-wow-delay=".5s" src="images/bo.jpg" alt="" />
+            <div class="lone-line">
+                <h4>Social Sense Perception of Loneliness</h4>
+                <ul class="grid-blog agileits w3layouts">
+                    <li><span><i class="glyphicon agileits w3layouts glyphicon-time"> </i>08.09.2014</span></li>
+                    <li><a href="#"><i class="glyphicon agileits w3layouts glyphicon-comment"> </i>5 Comment</a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-share"> </i>Share</a></li>
+                </ul>
+                <p class="wow fadeInLeft agileits w3layouts animated" data-wow-delay=".5s">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error.
+                    <span>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//content-->
+<script type="text/javascript">
+    $(document).ready(function () {
+        var defaults = {
+                containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+            };
+
+        $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+</script>
+<a href="#" class="agileits w3layouts" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+

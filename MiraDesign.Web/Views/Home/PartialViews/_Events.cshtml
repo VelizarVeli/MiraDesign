@@ -1,10 +1,9 @@
 ﻿@model List<DataTransferObjects.ViewModels.ProjectViewModel>
-<!---->
 <div class="event" id="events">
     <div class="container">
 
         <div class="top-event">
-            <h3>Events </h3>
+            <h3>Проекти </h3>
             <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -16,19 +15,19 @@
             {
                 <div class="event-grid ">
                     <div class="event-left wow fadeInLeft animated" data-wow-delay=".5s">
-                        <a href="single.html"><img src="@Model[i].Image400X354" class="img-responsive" alt=""></a>
+                        <a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model[i].Id"><img src="@Model[i].Image400X354" class="img-responsive" alt=""></a>
                         <div class="event-top">
                             <div class="event-gr">
-                                <h4><a href="single.html">@Model[i].Name</a> </h4>
+                                <h4><a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model[i].Id">@Model[i].Name</a> </h4>
                                 <p>@Model[i].SmallDescription</p>
                             </div>
                         </div>
                     </div>
                     <div class="event-right wow fadeInRight animated" data-wow-delay=".5s">
-                        <a href="single.html"><img src="@Model[i + 1].Image400X354" class="img-responsive" alt=""></a>
+                        <a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model[i + 1].Id"><img src="@Model[i + 1].Image400X354" class="img-responsive" alt=""></a>
                         <div class="event-top event-top1">
                             <div class="event-gr">
-                                <h4><a href="single.html">@Model[i + 1].Name</a> </h4>
+                                <h4><a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model[i + 1].Id">@Model[i + 1].Name</a> </h4>
                                 <p>@Model[i + 1].SmallDescription</p>
                             </div>
                         </div>
@@ -40,21 +39,21 @@
             {
                 <div class="event-grid">
                     <div class="event-left event-left1 wow fadeInRight animated" data-wow-delay=".5s">
-                        <a href="single.html"><img src="@Model[i].Image400X354" class="img-responsive" alt=""></a>
+                        <a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model[i].Id"><img src="@Model[i].Image400X354" class="img-responsive" alt=""></a>
                         <div class="clearfix"></div>
                         <div class="event-top event-t">
                             <div class="event-gr">
-                                <h4><a href="single.html">@Model[i].Name</a></h4>
+                                <h4><a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model[i].Id">@Model[i].Name</a></h4>
                                 <p>@Model[i].SmallDescription</p>
                             </div>
                         </div>
                     </div>
                     <div class="event-right event-right1 wow fadeInLeft animated" data-wow-delay=".5s">
-                        <a href="single.html"><img src="@Model[i + 1].Image400X354" class="img-responsive" alt=""></a>
+                        <a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model[i + 1].Id"><img src="@Model[i + 1].Image400X354" class="img-responsive" alt=""></a>
                         <div class="clearfix"></div>
                         <div class="event-top event-t1">
                             <div class="event-gr">
-                                <h4><a href="single.html">@Model[i + 1].Name</a></h4>
+                                <h4><a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model[i + 1].Id">@Model[i + 1].Name</a></h4>
                                 <p>@Model[i + 1].SmallDescription</p>
                             </div>
                         </div>
