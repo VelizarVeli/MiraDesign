@@ -10,5 +10,7 @@ namespace MiraDesign.Data.Data
             : base(options)
         {
         }
+
+        public DbSet<Project> Projects { get; set; }
     }
 }

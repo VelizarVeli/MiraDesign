@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MiraDesign.Data.Data;
 
 namespace MiraDesign.Data.Migrations
 {
     [DbContext(typeof(MiraDesignContext))]
-    partial class MiraDesignContextModelSnapshot : ModelSnapshot
+    [Migration("20191001065207_Projects")]
+    partial class Projects
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

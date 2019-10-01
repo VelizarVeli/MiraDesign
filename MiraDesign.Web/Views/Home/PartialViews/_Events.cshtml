@@ -1,4 +1,6 @@
-﻿<div class="event" id="events">
+﻿@model List<DataTransferObjects.ViewModels.ProjectViewModel>
+<!---->
+<div class="event" id="events">
     <div class="container">
 
         <div class="top-event">
@@ -8,70 +10,58 @@
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             </p>
         </div>
-        <div class="event-grid ">
-            <div class="event-left wow fadeInLeft animated" data-wow-delay=".5s">
-                <a href="single.html"><img src="images/pc.jpg" class="img-responsive" alt=""></a>
-                <div class="event-top">
-                    <div class="event-gr">
-                        <h4><a href="single.html">Contrary to popular belief</a> </h4>
-                        <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
+        @for (int i = 0; i < Model.Count; i += 2)
+        {
+            if (Model[i].Id % 4 == 1)
+            {
+                <div class="event-grid ">
+                    <div class="event-left wow fadeInLeft animated" data-wow-delay=".5s">
+                        <a href="single.html"><img src="@Model[i].Image400X354" class="img-responsive" alt=""></a>
+                        <div class="event-top">
+                            <div class="event-gr">
+                                <h4><a href="single.html">@Model[i].Name</a> </h4>
+                                <p>@Model[i].SmallDescription</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="event-right wow fadeInRight animated" data-wow-delay=".5s">
-                <a href="single.html"><img src="images/pc1.jpg" class="img-responsive" alt=""></a>
-                <div class="event-top event-top1">
-                    <div class="event-gr">
-                        <h4><a href="single.html">There are many variations</a> </h4>
-                        <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
+                    <div class="event-right wow fadeInRight animated" data-wow-delay=".5s">
+                        <a href="single.html"><img src="@Model[i + 1].Image400X354" class="img-responsive" alt=""></a>
+                        <div class="event-top event-top1">
+                            <div class="event-gr">
+                                <h4><a href="single.html">@Model[i + 1].Name</a> </h4>
+                                <p>@Model[i + 1].SmallDescription</p>
+                            </div>
+                        </div>
                     </div>
+                    <div class="clearfix"></div>
                 </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="event-grid">
-            <div class="event-left event-left1 wow fadeInRight animated" data-wow-delay=".5s">
-                <a href="single.html"><img src="images/pc2.jpg" class="img-responsive" alt=""></a>
-                <div class="clearfix"></div>
-                <div class="event-top event-t">
-                    <div class="event-gr">
-                        <h4><a href="single.html">There are many variations </a></h4>
-                        <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
+            }
+            if (Model[i].Id % 4 == 3)
+            {
+                <div class="event-grid">
+                    <div class="event-left event-left1 wow fadeInRight animated" data-wow-delay=".5s">
+                        <a href="single.html"><img src="@Model[i].Image400X354" class="img-responsive" alt=""></a>
+                        <div class="clearfix"></div>
+                        <div class="event-top event-t">
+                            <div class="event-gr">
+                                <h4><a href="single.html">@Model[i].Name</a></h4>
+                                <p>@Model[i].SmallDescription</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="event-right event-right1 wow fadeInLeft animated" data-wow-delay=".5s">
-                <a href="single.html"><img src="images/pc3.jpg" class="img-responsive" alt=""></a>
-                <div class="clearfix"></div>
-                <div class="event-top event-t1">
-                    <div class="event-gr">
-                        <h4><a href="single.html">Contrary to popular belief </a></h4>
-                        <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
+                    <div class="event-right event-right1 wow fadeInLeft animated" data-wow-delay=".5s">
+                        <a href="single.html"><img src="@Model[i + 1].Image400X354" class="img-responsive" alt=""></a>
+                        <div class="clearfix"></div>
+                        <div class="event-top event-t1">
+                            <div class="event-gr">
+                                <h4><a href="single.html">@Model[i + 1].Name</a></h4>
+                                <p>@Model[i + 1].SmallDescription</p>
+                            </div>
+                        </div>
                     </div>
+                    <div class="clearfix"></div>
                 </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="event-grid ">
-            <div class="event-left wow fadeInLeft animated" data-wow-delay=".5s">
-                <a href="single.html"><img src="images/pc4.jpg" class="img-responsive" alt=""></a>
-                <div class="event-top">
-                    <div class="event-gr">
-                        <h4><a href="single.html">There are many variations </a></h4>
-                        <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
-                    </div>
-                </div>
-            </div>
-            <div class="event-right wow fadeInRight animated" data-wow-delay=".5s">
-                <a href="single.html"><img src="images/pc5.jpg" class="img-responsive" alt=""></a>
-                <div class="event-top event-top1">
-                    <div class="event-gr">
-                        <h4><a href="single.html">Contrary to popular belief </a></h4>
-                        <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
-                    </div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
+            }
+        }
     </div>
 </div>

@@ -1,18 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using DataTransferObjects.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using MiraDesign.Data.Data;
 using MiraDesign.Web.Models;
 
 namespace MiraDesign.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        public IActionResult Index()
+        public HomeController(MiraDesignContext dbContext) 
+            : base(dbContext)
         {
-            return View();
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var projects = await DbContext.Projects.Select(p => new ProjectViewModel
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Image400X354 = p.Image400X354,
+                SmallDescription = p.About
+            }).ToListAsync();
+
+            return View(projects);
         }
 
         public IActionResult Privacy()

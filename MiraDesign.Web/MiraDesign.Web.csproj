@@ -23,9 +23,9 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\DataTransferObjects\DataTransferObjects.csproj" />
     <ProjectReference Include="..\MiraDesign.Data\MiraDesign.Data.csproj" />
     <ProjectReference Include="..\MiraDesign.Models\MiraDesign.Models.csproj" />
-    <ProjectReference Include="..\MiraDesign.Services\MiraDesign.Services.csproj" />
   </ItemGroup>
 
 </Project>
