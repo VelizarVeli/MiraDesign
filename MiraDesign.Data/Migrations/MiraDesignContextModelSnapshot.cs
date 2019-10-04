@@ -129,6 +129,23 @@ namespace MiraDesign.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("MiraDesign.Models.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Link");
+
+                    b.Property<int>("ProjectId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("Images");
+                });
+
             modelBuilder.Entity("MiraDesign.Models.MiraDesignUser", b =>
                 {
                     b.Property<string>("Id")
@@ -245,6 +262,14 @@ namespace MiraDesign.Data.Migrations
                     b.HasOne("MiraDesign.Models.MiraDesignUser")
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("MiraDesign.Models.Image", b =>
+                {
+                    b.HasOne("MiraDesign.Models.Project", "Project")
+                        .WithMany("Images")
+                        .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
