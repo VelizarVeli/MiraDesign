@@ -23,10 +23,27 @@ namespace MiraDesign.Web.Controllers
                 Id = p.Id,
                 Name = p.Name,
                 Image400X354 = p.Image400X354,
-                SmallDescription = p.About
+                SmallDescription = p.About,
+                Number = p.Number
             }).ToListAsync();
 
-            return View(projects);
+            var gallery = await DbContext.Projects.Select(g => new FrontGalleryViewModel
+            {
+                Id = g.Id,
+                About = g.About,
+                Image550X365 = g.Image550X365,
+                Name = g.Name,
+                Number = g.Number, 
+                Subname = g.Subname
+            }).ToListAsync();
+
+            var homeModel = new HomeViewModel
+            {
+                Projects = projects,
+                Gallery = gallery
+            };
+
+            return View(homeModel);
         }
 
         public IActionResult Privacy()

@@ -203,17 +203,30 @@ namespace MiraDesign.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("About");
+                    b.Property<string>("About")
+                        .IsRequired();
 
-                    b.Property<string>("Image1280X478");
+                    b.Property<string>("Image1280X478")
+                        .IsRequired();
 
-                    b.Property<string>("Image400X354");
+                    b.Property<string>("Image400X354")
+                        .IsRequired();
 
-                    b.Property<string>("Image450X398");
+                    b.Property<string>("Image450X398")
+                        .IsRequired();
 
-                    b.Property<string>("Image550X365");
+                    b.Property<string>("Image550X365")
+                        .IsRequired();
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.Property<int>("Number");
+
+                    b.Property<string>("Subname")
+                        .IsRequired()
+                        .HasMaxLength(200);
 
                     b.HasKey("Id");
 

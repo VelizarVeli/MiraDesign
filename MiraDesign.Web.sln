@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiraDesign.Models", "MiraDe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiraDesign.Data", "MiraDesign.Data\MiraDesign.Data.csproj", "{71CB4C4E-8261-4E61-B22B-A2A7256370E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTransferObjects", "DataTransferObjects\DataTransferObjects.csproj", "{B718E004-7A58-4BBD-AA76-05DA74635D1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTransferObjects", "DataTransferObjects\DataTransferObjects.csproj", "{B718E004-7A58-4BBD-AA76-05DA74635D1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiraDesign.Common", "MiraDesign.Common\MiraDesign.Common.csproj", "{6200E07A-DD60-4BB5-83DD-84FDD8F21DC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B718E004-7A58-4BBD-AA76-05DA74635D1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B718E004-7A58-4BBD-AA76-05DA74635D1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B718E004-7A58-4BBD-AA76-05DA74635D1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6200E07A-DD60-4BB5-83DD-84FDD8F21DC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6200E07A-DD60-4BB5-83DD-84FDD8F21DC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6200E07A-DD60-4BB5-83DD-84FDD8F21DC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6200E07A-DD60-4BB5-83DD-84FDD8F21DC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

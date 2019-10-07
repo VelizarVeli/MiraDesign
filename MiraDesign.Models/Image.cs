@@ -1,9 +1,7 @@
 ﻿namespace MiraDesign.Models
 {
-    public class Image
+    public class Image : BaseId
     {
-        public int Id { get; set; }
-
         public string Link { get; set; }
 
         public int ProjectId { get; set; }
