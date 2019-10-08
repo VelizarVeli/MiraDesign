@@ -4,10 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
-
-
-
-@{ int counter = 0;}
+@{ int counter = 0 % 3;}
 @{ var gallery = Model.Images.ToList();}
 <div class="header agileits w3layouts header-head" id="home">
     <div class="container">
@@ -52,45 +49,78 @@
     </div>
 </div>
 <div class="portfolio" id="gallery">
+    @for (int i = 0; i < gallery.Count;)
+    {
+        <div class="portfolio-top wow fadeInDown animated" data-wow-delay=".5s">
+            @for (int j = 3; j > i % 4; i++)
+            {
+                if (i < gallery.Count)
+                {
+                    <div class="col-md-4 grid slideanim">
+                        <figure class="effect-jazz">
+                            <a href="#portfolioModal@(gallery[i].Id)" data-toggle="modal">
+                                <img src="@gallery[i].Link" alt="img25" class="img-responsive" />
+                                <figcaption>
+                                    <h4 class="effcet-text">@gallery[i].Name</h4>
+                                    <p>@gallery[i].About</p>
+                                </figcaption>
+                            </a>
+                        </figure>
+                    </div>
+                }
+                else
+                {
+                    break;
+                }
+            }
+            @if (i % 7 == 0)
+            {
+                <div class="col-md-4 grid slideanim">
+                    <figure class="effect-jazz">
+                        <a href="#portfolioModal@(gallery[i].Id)" data-toggle="modal">
+                            <img src="@gallery[i].Link" alt="img25" class="img-responsive" />
+                            <figcaption>
+                                <h4 class="effcet-text">@gallery[i].Name</h4>
+                                <p>@gallery[i].About</p>
+                            </figcaption>
+                        </a>
+                    </figure>
+                </div>
+                i++;
+            }
+            <div class="clearfix"></div>
+        </div>
+        <div class="portfolio-top wow fadeInUp animated" data-wow-delay=".5s">
+            @for (int k = 7; k > i % 8; i++)
+            {
+                counter = i % 8;
 
-    <div class="portfolio-top wow fadeInDown animated" data-wow-delay=".5s">
-        @foreach(var picture in gallery.Take(3))
-        {
-            <div class="col-md-4 grid slideanim">
-                <figure class="effect-jazz">
-                    <a href="#portfolioModal@(picture.Id)" data-toggle="modal">
-
-                        <img src="@picture.Link" alt="img25" class="img-responsive" />
-                        <figcaption>
-                            <h4>Mira Design</h4>
-                        </figcaption>
-                    </a>
-                </figure>
-            </div>
-            counter++;
-        }
-        <div class="clearfix"></div>
-    </div>
-    <div class="portfolio-top wow fadeInUp animated" data-wow-delay=".5s">
-        @foreach (var image in gallery.Take(4))
-        {
-            <div class="col-md-3 grid grid-wi slideanim">
-                <figure class="effect-jazz">
-                    <a href="#portfolioModal1" data-toggle="modal">
-                        <img src="@image.Link" alt="img25" class="img-responsive" />
-                        <figcaption>
-                            <h4>Mira Design</h4>
-                        </figcaption>
-                    </a>
-                </figure>
-            </div>
-        }
-        <div class="clearfix"></div>
-    </div>
+                if (i < gallery.Count)
+                {
+                    <div class="col-md-3 grid grid-wi slideanim">
+                        <figure class="effect-jazz">
+                            <a href="#portfolioModal@(gallery[i].Id)" data-toggle="modal">
+                                <img src="@gallery[i].Link" alt="img25" class="img-responsive" />
+                                <figcaption>
+                                    <h4 class="effcet-text">@gallery[i].Name</h4>
+                                    <p>@gallery[i].About</p>
+                                </figcaption>
+                            </a>
+                        </figure>
+                    </div>
+                }
+                else
+                {
+                    break;
+                }
+            }
+            <div class="clearfix"></div>
+        </div>
+    }
 </div>
 @foreach (var modal in gallery)
 {
-    <div class="portfolio-modal modal fade slideanim" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="portfolio-modal modal fade slideanim" id="portfolioModal@(modal.Id)" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -103,7 +133,7 @@
                         <h3>@modal.Project.Name</h3>
                         <img src="@modal.Link" class="img-responsive" alt="">
                         <p>
-                            Mira Design
+                            @modal.Name
                         </p>
                     </div>
                 </div>

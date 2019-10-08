@@ -135,7 +135,13 @@ namespace MiraDesign.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("About")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
                     b.Property<string>("Link");
+
+                    b.Property<string>("Name");
 
                     b.Property<int>("ProjectId");
 
