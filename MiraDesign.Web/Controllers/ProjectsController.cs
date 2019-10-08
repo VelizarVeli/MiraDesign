@@ -28,6 +28,7 @@ namespace MiraDesign.Web.Controllers
                 About = project.About,
                 Images = project.Images.ToList(),
                 Name = project.Name,
+                Subname = project.Subname,
                 Image1280X478 = project.Image1280X478
             };
 

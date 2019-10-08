@@ -10,6 +10,8 @@ namespace DataTransferObjects.ViewModels
 
         public string Name { get; set; }
 
+        public string Subname { get; set; }
+
         public string About { get; set; }
 
         public string Image1280X478 { get; set; }

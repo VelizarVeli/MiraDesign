@@ -24,7 +24,8 @@ namespace MiraDesign.Web.Controllers
                 Name = p.Name,
                 Image400X354 = p.Image400X354,
                 SmallDescription = p.About,
-                Number = p.Number
+                Number = p.Number,
+                Subname = p.Subname
             }).ToListAsync();
 
             var gallery = await DbContext.Projects.Select(g => new FrontGalleryViewModel

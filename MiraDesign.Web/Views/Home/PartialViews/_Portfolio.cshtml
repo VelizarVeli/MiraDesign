@@ -1,8 +1,8 @@
 ﻿@model DataTransferObjects.ViewModels.HomeViewModel
 @{ int counter = 0;}
 @{ var gallery = Model.Gallery.OrderBy(n => n.Number).Take(7).ToList();}
-<div class="portfolio" id="gallery">
 
+<div class="portfolio" id="gallery">
     <div class="portfolio-top wow fadeInDown animated" data-wow-delay=".5s">
         @for (int i = counter; i < 3; i++)
         {
