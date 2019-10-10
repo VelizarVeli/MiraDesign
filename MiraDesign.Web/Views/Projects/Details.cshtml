@@ -33,7 +33,7 @@
 <div class="single agileits w3layouts">
     <div class="container">
         <div class="single-top">
-            <img class="img-responsive wow fadeInUp agileits w3layouts animated" src="@Model.Image1280X478" alt="Image" />
+            <img class="img-responsive wow fadeInUp agileits w3layouts animated" src="@Model.Image1280X478" alt="Image" /><br/>
             <div class="lone-line">
                 <h4>@Model.Subname</h4>
                 <p class="wow fadeInLeft agileits w3layouts animated" data-wow-delay=".5s">
@@ -70,7 +70,7 @@
             }
             @if (i % 7 == 0)
             {
-                <div class="col-md-4 grid slideanim">
+                @*<div class="col-md-4 grid slideanim">
                     <figure class="effect-jazz">
                         <a href="#portfolioModal@(gallery[i].Id)" data-toggle="modal">
                             <img src="@gallery[i].Link" alt="img25" class="img-responsive" />
@@ -80,8 +80,8 @@
                             </figcaption>
                         </a>
                     </figure>
-                </div>
-                i++;
+                </div>*@
+                i--;
             }
             <div class="clearfix"></div>
         </div>
@@ -128,7 +128,7 @@
                         <h3>@modal.Project.Name</h3>
                         <img src="@modal.Link" class="img-responsive" alt="">
                         <p>
-                            @modal.Name
+                            @modal.Project.Subname
                         </p>
                     </div>
                 </div>
