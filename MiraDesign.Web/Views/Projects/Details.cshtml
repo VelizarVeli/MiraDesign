@@ -70,7 +70,7 @@
             }
             @if (i % 7 == 0)
             {
-                @*<div class="col-md-4 grid slideanim">
+                <div class="col-md-4 grid slideanim">
                     <figure class="effect-jazz">
                         <a href="#portfolioModal@(gallery[i].Id)" data-toggle="modal">
                             <img src="@gallery[i].Link" alt="img25" class="img-responsive" />
@@ -80,8 +80,8 @@
                             </figcaption>
                         </a>
                     </figure>
-                </div>*@
-                i--;
+                </div>
+                i++;
             }
             <div class="clearfix"></div>
         </div>
