@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewData["Title"] = "AddProject";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model DataTransferObjects.BindingModels.AdminProjectBindingModel
+
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header bg-info text-white">
+            <h5 class="modal-title"><i class="fa fa-tasks"></i> Add Project</h5>
+        </div>
+        <div class="modal-body">
+            <form asp-action="AddProject">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Number" class="control-label"></label>
+                    <input type="number" asp-for="Number" class="form-control">
+                    <span asp-validation-for="Number" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Subname" class="control-label"></label>
+                    <input asp-for="Subname" class="form-control" />
+                    <span asp-validation-for="Subname" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="About" class="control-label"></label>
+                    <textarea asp-for="About" class="form-control"></textarea>
+                    <span asp-validation-for="About" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image550X365" class="control-label"></label>
+                    <input asp-for="Image550X365" class="form-control" />
+                    <span asp-validation-for="Image550X365" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image450X398" class="control-label"></label>
+                    <input asp-for="Image450X398" class="form-control" />
+                    <span asp-validation-for="Image450X398" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image400X354" class="control-label"></label>
+                    <input asp-for="Image400X354" class="form-control" />
+                    <span asp-validation-for="Image400X354" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image1280X478" class="control-label"></label>
+                    <input asp-for="Image1280X478" class="form-control" />
+                    <span asp-validation-for="Image1280X478" class="text-danger"></span>
+                </div>
+                <div class="modal-footer d-flex justify-content-around">
+                    <a asp-area="" asp-controller="Administrator" asp-action="AddProject" class="btn btn-secondary">Close</a>
+                    <input type="submit" value="Save" class="btn btn-success" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Editor{
+    <script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
+    <script>CKEDITOR.replace( 'About' );</script>
+}
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

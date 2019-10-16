@@ -3,7 +3,7 @@ using MiraDesign.Data.Data;
 
 namespace MiraDesign.Web.Controllers
 {
-    public class BaseController : Controller
+    public abstract class BaseController : Controller
     {
         protected MiraDesignContext DbContext { get; }
 
