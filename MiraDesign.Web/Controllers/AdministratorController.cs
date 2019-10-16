@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Threading.Tasks;
+using DataTransferObjects.BindingModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MiraDesign.Data.Data;
+using MiraDesign.Models;
 
 namespace MiraDesign.Web.Controllers
 {
@@ -16,12 +19,23 @@ namespace MiraDesign.Web.Controllers
             return View("AddProject");
         }
 
-        //[Authorize]
-        //[HttpPost]
-        //public async Task<IActionResult> AddExpenditurePost(ExpenditureModalBindingModel model)
-        //{
-        //    await _accountService.AddExpenditure(model, _user.GetUserId(User));
-        //    return RedirectToAction("Index", "Home");
-        //}
+        [HttpPost]
+        public async Task<IActionResult> AddProjectPost(AdminProjectBindingModel model)
+        {
+            var project = new Project
+            {
+                About = model.About,
+                Name = model.Name,
+                Number = model.Number,
+                Subname = model.Subname,
+                Image1280X478 = model.Image1280X478,
+                Image400X354 = model.Image400X354,
+                Image450X398 = model.Image450X398,
+                Image550X365 = model.Image550X365
+            };
+            await DbContext.Projects.AddAsync(project);
+            await DbContext.SaveChangesAsync();
+            return RedirectToAction("AddProject");
+        }
     }
 }
