@@ -1,12 +1,21 @@
-﻿<div class="contact" id="contact">
+﻿@model DataTransferObjects.ViewModels.HomeViewModel
+<div class="contact" id="contact">
     <div class="col-md-12 align-content-center contact-form wow agileits w3layouts fadeInRight animated" data-wow-delay=".5s">
         <h3>За контакти</h3>
         <div class="col-md-6 agileits w3layouts contact-top">
-            <form>
-                <input type="text" placeholder="Вашето име" required="">
-                <input type="text" placeholder="Вашият имейл" required="">
-                <input type="text" placeholder="Тема" required="">
-                <textarea placeholder="Текст" required=""></textarea>
+            <form asp-controller="Mail" asp-action="SendMessage">
+                <input asp-for="@Model.Message.Name" />
+                <span asp-validation-for="@Model.Message.Name" class="text-danger"></span>
+
+                <input asp-for="@Model.Message.Email" />
+                <span asp-validation-for="@Model.Message.Email" class="text-danger"></span>
+
+                <input asp-for="@Model.Message.Subject" />
+                <span asp-validation-for="@Model.Message.Subject" class="text-danger"></span>
+
+                <textarea asp-for="@Model.Message.Content"></textarea>
+                <span asp-validation-for="@Model.Message.Content" class="text-danger"></span>
+               
                 <label class="hvr-rectangle-out agileits w3layouts">
                     <input type="submit" value="Изпрати">
                 </label>
@@ -30,7 +39,6 @@
                     </div>
                     <div class="clearfix"> </div>
                 </div>
-
             </div>
         </div>
         <div class="clearfix"></div>

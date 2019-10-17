@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MiraDesign.Common\MiraDesign.Common.csproj" />
     <ProjectReference Include="..\MiraDesign.Models\MiraDesign.Models.csproj" />
   </ItemGroup>
 

@@ -8,8 +8,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MiraDesign.Common.ViewModels;
 using MiraDesign.Data.Data;
 using MiraDesign.Models;
+using MiraDesign.Web.Mails;
+using MiraDesign.Web.Mails.Contracts;
 
 namespace MiraDesign.Web
 {
@@ -45,6 +48,10 @@ namespace MiraDesign.Web
             {
                 options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
             }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSingleton<IEmailConfiguration>(Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>());
+            services.AddTransient<IEmailService, EmailService>();
+            services.AddScoped<IEmailMessage, EmailMessage>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

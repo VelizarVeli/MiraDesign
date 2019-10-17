@@ -5,6 +5,7 @@ using DataTransferObjects.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MiraDesign.Data.Data;
+using MiraDesign.Web.Mails;
 using MiraDesign.Web.Models;
 
 namespace MiraDesign.Web.Controllers
@@ -28,20 +29,9 @@ namespace MiraDesign.Web.Controllers
                 Subname = p.Subname
             }).ToListAsync();
 
-            var gallery = await DbContext.Projects.Select(g => new FrontGalleryViewModel
-            {
-                Id = g.Id,
-                About = g.About,
-                Image550X365 = g.Image550X365,
-                Name = g.Name,
-                Number = g.Number, 
-                Subname = g.Subname
-            }).ToListAsync();
-
             var homeModel = new HomeViewModel
             {
-                Projects = projects,
-                Gallery = gallery
+                Projects = projects
             };
 
             return View(homeModel);
