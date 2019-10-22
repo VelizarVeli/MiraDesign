@@ -1,11 +1,6 @@
-/*Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
---*/
 @font-face {
     font-family: 'Nunito-Regular';
-    src:url(../fonts/Nunito-Regular.ttf) format('truetype');
+    src: url(../fonts/Nunito-Regular.ttf) format('truetype');
 }
 @font-face {
     font-family: 'FredokaOne-Regular';
@@ -15,11 +10,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     font-family: 'Abel-Regular';
     src:url(../fonts/Abel-Regular.ttf) format('truetype');
 }
+@font-face {
+    font-family: 'AvantiB';
+    src: url(../fonts/AvantiB.ttf) format('truetype');
+}
 
 html,body{
 	background:#fff;
 	font-size: 100%;	
-	 font-family: 'Abel-Regular';
+	 font-family: 'AvantiB';
 }
 body a{
 	transition: 0.5s all;
@@ -149,12 +148,12 @@ ul.nav.navbar-nav li a:focus::after {
 	padding: 7em 0 0;
 	    text-align: center;
 }
-.banner h2 ,.banner h3{
-    color: #fff;
-    text-align: center;
-    font-size: 2.8em;
-    font-family:'Nunito-Regular';
-}
+    .banner h2, .banner h3 {
+        color: #fff;
+        text-align: center;
+        font-size: 2.8em;
+        font-family: 'AvantiB';
+    }
 .banner h3{
 	margin-left: 4em;
 }
@@ -239,8 +238,7 @@ ul.nav.navbar-nav li a:focus::after {
     color: #FF0068;
     font-size: 3em;
     padding: 0 0 0.3em;
-        font-family: 'Nunito-Regular';
-
+    font-family: 'AvantiB';
 }
 .col-top p {
     color: #8A8A8A;
@@ -278,12 +276,12 @@ ul.nav.navbar-nav li a:focus::after {
 .facts{
     text-align: center;
 }
-.facts h4 {
-    color: #000;
-    font-size: 1.8em;
-    padding:  1em 0 0;
-     font-family: 'Nunito-Regular';
-}
+    .facts h4 {
+        color: #000;
+        font-size: 1.8em;
+        padding: 1em 0 0;
+        font-family: 'AvantiB';
+    }
 .facts p {
     color:#8A8A8A;
     font-size: 1em;
@@ -391,14 +389,14 @@ figure.effect-jazz p {
 	transform: scale3d(0.8,0.8,1);
 }
 
-figure.effect-jazz h4 {
-	text-transform: none;
-	text-decoration: none;
-	font-size: 1.2em;
-	opacity: 0;
-	font-family: 'Nunito-Regular';
-	margin-top: 3em;
-}
+    figure.effect-jazz h4 {
+        text-transform: none;
+        text-decoration: none;
+        font-size: 1.2em;
+        opacity: 0;
+        font-family: 'AvantiB';
+        margin-top: 3em;
+    }
 figure.effect-jazz p {
 	padding: 0.5em 2em;
 	text-transform: none;
@@ -445,13 +443,13 @@ figure.effect-jazz a {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-.portfolio-modal .modal-content h3 {
-    margin: 0;
-    font-size: 3em;
-	font-family: 'Nunito-Regular';
-	color: #fff;
-	margin-bottom: 0.5em;
-}
+    .portfolio-modal .modal-content h3 {
+        margin: 0;
+        font-size: 3em;
+        font-family: 'AvantiB';
+        color: #fff;
+        margin-bottom: 0.5em;
+    }
 .portfolio-modal .modal-content img {
        margin: 0 auto;
 }
@@ -502,12 +500,12 @@ figure.effect-jazz a {
 .top-event{
 	text-align:center;
 }
-.top-event h3 {
-    color: #FF0068;
-    font-size: 3em;
-    padding: 0 0 0.3em;
-    font-family: 'Nunito-Regular';
-}
+    .top-event h3 {
+        color: #FF0068;
+        font-size: 3em;
+        padding: 0 0 0.3em;
+        font-family: 'AvantiB';
+    }
 .top-event p {
     color: #8A8A8A;
     font-size: 1em;
@@ -546,7 +544,7 @@ figure.effect-jazz a {
 .event-top h4 {
     color: #000;
     font-size: 1.3em;
-    font-family: 'Nunito-Regular';
+    font-family: 'AvantiB';
 }
 .event-top h4 a{
     color: #000;
@@ -600,14 +598,14 @@ figure.effect-jazz a {
 .ser-grid{
 	padding-top:3em;
 }
-.services h3{
-	color: #FF0068;
+.services h3 {
+    color: #FF0068;
     font-size: 3em;
-    font-family: 'Nunito-Regular';
+    font-family: 'AvantiB';
 }
-.ser-top h5{
+.ser-top h5 {
     color: #000;
-    font-family: 'Nunito-Regular';
+    font-family: 'AvantiB';
     font-size: 1.4em;
 }
 .ser-top p{
@@ -626,12 +624,12 @@ figure.effect-jazz a {
 .test {
     padding: 5em 0;
 }
-.test h3 {
-    color: #FF0068;
-    font-size: 3em;
-    font-family: 'Nunito-Regular';
-	text-align:center;
-}
+    .test h3 {
+        color: #FF0068;
+        font-size: 3em;
+        font-family: 'AvantiB';
+        text-align: center;
+    }
 .test-top {
     padding: 4em 0 0;
 }
@@ -649,16 +647,16 @@ figure.effect-jazz a {
 	float:left;
 	border-radius:100px;
 }
-.test-top3 h6{
-	float:right;
+.test-top3 h6 {
+    float: right;
     color: #000;
     font-size: 1.2em;
     line-height: 2em;
-	font-family: 'Nunito-Regular';
+    font-family: 'AvantiB';
     width: 77%;
     /*--W3layouts--*/
     /*-Agileits-*/
-	margin-top: 1.4em;
+    margin-top: 1.4em;
 }
 /*----*/
 .clients{
@@ -669,12 +667,12 @@ figure.effect-jazz a {
 	padding: 5em 0 0 0;
 	text-align:center;
 }
-.clients h3{
-	color: #FF0068;
-    font-size: 3em;
-    font-family: 'Nunito-Regular';
-    text-align: center;
-}
+    .clients h3 {
+        color: #FF0068;
+        font-size: 3em;
+        font-family: 'AvantiB';
+        text-align: center;
+    }
 .clients h3 span{
 	font-weight:600;
 }
@@ -689,14 +687,14 @@ figure.effect-jazz a {
 	margin: 0 auto;
 	padding:0 0 2em;
 }
-.item-right span{
-	color:#fff;
-	font-size:1.3em;
-	text-align: center;
+.item-right span {
+    color: #fff;
+    font-size: 1.3em;
+    text-align: center;
     /*--W3layouts--*/
     /*-Agileits-*/
-	display: block;	
-	font-family: 'Nunito-Regular';
+    display: block;
+    font-family: 'AvantiB';
 }
 /*--advantage--*/
 .advantage {
@@ -706,12 +704,12 @@ figure.effect-jazz a {
 .advantage-top{
 	text-align:center;
 }
-.advantage-top h3 {
-    color: #FF0068;
-    font-size: 3em;
-    padding: 0 0 0.3em;
-    font-family: 'Nunito-Regular';
-}
+    .advantage-top h3 {
+        color: #FF0068;
+        font-size: 3em;
+        padding: 0 0 0.3em;
+        font-family: 'AvantiB';
+    }
 .advantage-top p {
     color: #8A8A8A;
     font-size: 1em;
@@ -734,11 +732,11 @@ figure.effect-jazz a {
 	font-size: 1.7em;
   color: #FF0068;
 }
-.content-text h5{
-	font-size: 1.5em;
-	color:#000;
-	  font-family: 'Nunito-Regular';
-	  margin-bottom: 0.5em;
+.content-text h5 {
+    font-size: 1.5em;
+    color: #000;
+    font-family: 'AvantiB';
+    margin-bottom: 0.5em;
 }
 .content-text p{
 	font-size: 1em;
@@ -764,11 +762,11 @@ figure.effect-jazz a {
 .team {
   padding:  3em 0 0;
 }
-.our-team h3{
-	color: #FF0068;
+.our-team h3 {
+    color: #FF0068;
     font-size: 3em;
-    font-family: 'Nunito-Regular';
-	text-align:center;
+    font-family: 'AvantiB';
+    text-align: center;
 }
 .team-1 {
   border: 3px double #EDEDED;
@@ -805,8 +803,8 @@ ul.social-in li a i.icon1:hover{
 }
 .col-1-at h5 {
     font-size: 1.6em;
-    font-family: 'Nunito-Regular';
-	    margin-bottom: 0.3em;
+    font-family: 'AvantiB';
+    margin-bottom: 0.3em;
 }
 .col-1-at h5 a{
     color: #000;
@@ -843,13 +841,13 @@ ul.social-in li a i.icon1:hover{
     margin: 0 auto;
 
 }
-.contact-form h3 {
-    color: #FF0068;
-    font-size: 3em;
-    padding: 0 0 0.7em;
-    font-family: 'Nunito-Regular';
-	text-align:center;
-}
+    .contact-form h3 {
+        color: #FF0068;
+        font-size: 3em;
+        padding: 0 0 0.7em;
+        font-family: 'AvantiB';
+        text-align: center;
+    }
 .contact-top input[type="text"], .contact-top  textarea {
 	width: 100%;
     /*--W3layouts--*/
@@ -958,13 +956,13 @@ ul.social-in li a i.icon1:hover{
 .address-grid {
     padding: 1em 0;
 }
-.address1 h6{
-	font-size: 1.2em;
-	color:#000;
-	line-height:1.4em;
+.address1 h6 {
+    font-size: 1.2em;
+    color: #000;
+    line-height: 1.4em;
     /*--W3layouts--*/
     /*-Agileits-*/
-    font-family: 'Nunito-Regular';
+    font-family: 'AvantiB';
 }
 .address1 p {
     font-size: 1em;
@@ -990,7 +988,7 @@ ul.social-in li a i.icon1:hover{
     font-size: 1.5em;
     padding-top: 0.8em;
     color: #EB1478;
-    font-family: 'Nunito-Regular';
+    font-family: 'AvantiB';
 }
 .lone-line p {
     color: #8A8A8A;
@@ -1028,10 +1026,10 @@ ul.grid-blog {
 	 padding: 1.5em 0;
     text-align: center;
 }
-.comment h3{
-	font-size: 2.5em;
+.comment h3 {
+    font-size: 2.5em;
     color: #000000;
-    font-family: 'Nunito-Regular';
+    font-family: 'AvantiB';
 }
 .media-body p {
     color: #8A8A8A;
@@ -1042,10 +1040,10 @@ ul.grid-blog {
 .media-left, .media > .pull-left {
   padding-right: 22px;
 }
-.leave h3{
-	font-size: 2.5em;
-    color:#000000;
-    font-family: 'Nunito-Regular';
+.leave h3 {
+    font-size: 2.5em;
+    color: #000000;
+    font-family: 'AvantiB';
 }
 .single-grid input[type="text"],.single-grid textarea{
 	background: none;
@@ -1864,4 +1862,7 @@ ul.nav.navbar-nav li a {
 .map iframe {
     min-height: 250px;
 }
+}
+#home > div > div.banner.agileits.w3layouts > section > h2 > span {
+    font-family: 'Nunito-Regular';
 }
