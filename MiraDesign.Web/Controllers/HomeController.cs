@@ -5,7 +5,6 @@ using DataTransferObjects.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MiraDesign.Data.Data;
-using MiraDesign.Web.Mails;
 using MiraDesign.Web.Models;
 
 namespace MiraDesign.Web.Controllers

@@ -4,13 +4,14 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MiraDesign.Data.Data;
 using MiraDesign.Models;
+using System.Linq;
 
 namespace MiraDesign.Web.Controllers
 {
     [Authorize]
     public class AdministratorController : BaseController
     {
-        public AdministratorController(MiraDesignContext dbContext) 
+        public AdministratorController(MiraDesignContext dbContext)
             : base(dbContext)
         {
         }
@@ -36,6 +37,18 @@ namespace MiraDesign.Web.Controllers
             await DbContext.Projects.AddAsync(project);
             await DbContext.SaveChangesAsync();
             return RedirectToAction("AddProject");
+        }
+
+        public async Task<IActionResult> DeleteProject(int id)
+        {
+            var project = DbContext.Projects.SingleOrDefault(e => e.Id == id);
+            if (project != null)
+            {
+                DbContext.Projects.Remove(project);
+                await DbContext.SaveChangesAsync();
+            }
+
+            return RedirectToAction("Home", "Index");
         }
     }
 }
