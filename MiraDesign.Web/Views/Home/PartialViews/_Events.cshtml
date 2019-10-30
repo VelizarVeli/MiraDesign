@@ -1,4 +1,6 @@
 ﻿@model DataTransferObjects.ViewModels.HomeViewModel
+@{ var counter = 0;}
+@{ var length = Model.Projects.Count;}
 <div class="event" id="events">
     <div class="container">
 
@@ -8,55 +10,72 @@
                 Представям ви няколко избрани интериорни решения
             </p>
         </div>
-        @for (int i = 0; i < Model.Projects.Count; i += 2)
+        @if (length != 0)
         {
-            if (Model.Projects.ToList()[i].Number % 4 == 1)
+            @for (int i = 0; i < length; i += 4)
             {
                 <div class="event-grid ">
                     <div class="event-left wow fadeInLeft animated" data-wow-delay=".5s">
-                        <a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model.Projects.ToList()[i].Id"><img src="@Model.Projects.ToList()[i].Image400X354" class="img-responsive" alt=""></a>
+                        <a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model.Projects.ToList()[counter].Id"><img src="@Model.Projects.ToList()[counter].Image400X354" class="img-responsive" alt=""></a>
                         <div class="event-top">
                             <div class="event-gr">
-                                <h4><a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model.Projects.ToList()[i].Id">@Model.Projects.ToList()[i].Name</a> </h4>
-                                <p>@Model.Projects.ToList()[i].Subname</p>
+                                <h4><a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model.Projects.ToList()[counter].Id">@Model.Projects.ToList()[counter].Name</a> </h4>
+                                <p>@Model.Projects.ToList()[counter].Subname</p>
                             </div>
                         </div>
                     </div>
+                    @{counter++;}
+                    @if (counter == length)
+                    {
+                        break;
+                    }
                     <div class="event-right wow fadeInRight animated" data-wow-delay=".5s">
-                        <a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model.Projects.ToList()[i + 1].Id"><img src="@Model.Projects.ToList()[i + 1].Image400X354" class="img-responsive" alt=""></a>
+                        <a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model.Projects.ToList()[counter].Id"><img src="@Model.Projects.ToList()[counter].Image400X354" class="img-responsive" alt=""></a>
                         <div class="event-top event-top1">
                             <div class="event-gr">
-                                <h4><a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model.Projects.ToList()[i + 1].Id">@Model.Projects.ToList()[i + 1].Name</a> </h4>
-                                <p>@Model.Projects.ToList()[i + 1].Subname</p>
+                                <h4><a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model.Projects.ToList()[counter].Id">@Model.Projects.ToList()[counter].Name</a> </h4>
+                                <p>@Model.Projects.ToList()[counter].Subname</p>
                             </div>
                         </div>
                     </div>
+                    @{counter++;}
+                    @if (counter == length)
+                    {
+                        break;
+                    }
                     <div class="clearfix"></div>
                 </div>
-            }
-            if (Model.Projects.ToList()[i].Number % 4 == 3)
-            {
                 <div class="event-grid">
                     <div class="event-left event-left1 wow fadeInRight animated" data-wow-delay=".5s">
-                        <a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model.Projects.ToList()[i].Id"><img src="@Model.Projects.ToList()[i].Image400X354" class="img-responsive" alt=""></a>
+                        <a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model.Projects.ToList()[counter].Id"><img src="@Model.Projects.ToList()[counter].Image400X354" class="img-responsive" alt=""></a>
                         <div class="clearfix"></div>
                         <div class="event-top event-t">
                             <div class="event-gr">
-                                <h4><a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model.Projects.ToList()[i].Id">@Model.Projects.ToList()[i].Name</a></h4>
-                                <p>@Model.Projects.ToList()[i].Subname</p>
+                                <h4><a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model.Projects.ToList()[counter].Id">@Model.Projects.ToList()[counter].Name</a></h4>
+                                <p>@Model.Projects.ToList()[counter].Subname</p>
                             </div>
                         </div>
                     </div>
+                    @{counter++;}
+                    @if (counter == length)
+                    {
+                        break;
+                    }
                     <div class="event-right event-right1 wow fadeInLeft animated" data-wow-delay=".5s">
-                        <a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model.Projects.ToList()[i + 1].Id"><img src="@Model.Projects.ToList()[i + 1].Image400X354" class="img-responsive" alt=""></a>
+                        <a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model.Projects.ToList()[counter].Id"><img src="@Model.Projects.ToList()[counter].Image400X354" class="img-responsive" alt=""></a>
                         <div class="clearfix"></div>
                         <div class="event-top event-t1">
                             <div class="event-gr">
-                                <h4><a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model.Projects.ToList()[i + 1].Id">@Model.Projects.ToList()[i + 1].Name</a></h4>
-                                <p>@Model.Projects.ToList()[i + 1].Subname</p>
+                                <h4><a asp-area="" asp-controller="Projects" asp-action="Details" asp-route-id="@Model.Projects.ToList()[counter].Id">@Model.Projects.ToList()[counter].Name</a></h4>
+                                <p>@Model.Projects.ToList()[counter].Subname</p>
                             </div>
                         </div>
                     </div>
+                    @{counter++;}
+                    @if (counter == length)
+                    {
+                        break;
+                    }
                     <div class="clearfix"></div>
                 </div>
             }

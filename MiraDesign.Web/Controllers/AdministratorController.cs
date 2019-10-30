@@ -48,7 +48,7 @@ namespace MiraDesign.Web.Controllers
                 await DbContext.SaveChangesAsync();
             }
 
-            return RedirectToAction("Home", "Index");
+            return RedirectToAction( "Index","Home");
         }
     }
 }
