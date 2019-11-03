@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using MiraDesign.Data.Data;
 using MiraDesign.Models;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace MiraDesign.Web.Controllers
 {
@@ -49,6 +50,58 @@ namespace MiraDesign.Web.Controllers
             }
 
             return RedirectToAction( "Index","Home");
+        }
+
+        public async Task<IActionResult> EditProject(int id)
+        {
+            var projectDto = await DbContext
+               .Projects
+               .Select(p => new AdminProjectBindingModel
+               {
+                   Number = p.Number,
+                   Name = p.Name,
+                   Subname = p.Subname,
+                   About = p.About,
+                   Image550X365 = p.Image550X365,
+                   Image450X398 = p.Image450X398,
+                   Image400X354 = p.Image400X354,
+                   Image1280X478 = p.Image1280X478,
+                   Images = p.Images.Select(i => new Image
+                   {
+                       Name = i.Name,
+                       About = i.About,
+                       Link = i.Link
+                   }).ToList()
+               })
+               .Include(a => a.Images)
+               .SingleOrDefaultAsync(i => i.Id == id);
+
+            return View("EditProject", projectDto);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ProjectEdit(int id, EditProjectBindingModel incomingModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                RedirectToAction("Details", id);
+            }
+
+            var model = DbContext.Projects.FirstOrDefault(i => i.Id == id);
+
+            model.Image1280X478 = incomingModel.Image1280X478;
+            model.Image400X354 = incomingModel.Image400X354;
+            model.Image450X398 = incomingModel.Image450X398;
+            model.Image550X365 = incomingModel.Image550X365;
+            model.Images = incomingModel.Images;
+            model.Name = incomingModel.Name;
+            model.Number = incomingModel.Number;
+            model.Subname = incomingModel.Subname;
+
+            DbContext.Projects.Update(model);
+            await DbContext.SaveChangesAsync();
+
+            return RedirectToAction("Details", id);
         }
     }
 }

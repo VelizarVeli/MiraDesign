@@ -5,11 +5,11 @@ using MiraDesign.Models;
 
 namespace DataTransferObjects.BindingModels
 {
-    public class AdminProjectBindingModel
+    public class EditProjectBindingModel
     {
-        public AdminProjectBindingModel()
+        public EditProjectBindingModel()
         {
-            Images = new List<Image>();
+            Images = new HashSet<Image>();
         }
 
         public int Id { get; set; }

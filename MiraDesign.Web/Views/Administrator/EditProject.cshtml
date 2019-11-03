@@ -1,0 +1,32 @@
+﻿@model DataTransferObjects.BindingModels.EditProjectBindingModel
+
+@{
+    ViewData["Title"] = "EditProject";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form asp-action="ProjectEdit">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-info text-white">
+                <h5 class="modal-title"><i class="glyphicon agileits w3layouts glyphicon-edit"></i> Edit Project</h5>
+            </div>
+            <div class="modal-body">
+                <partial name="~/Views/Administrator/PartialViews/_EditDetail.cshtml" />
+            </div>
+            <div class="modal-header bg-info text-white d-flex justify-content-around">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-secondary"><i class="glyphicon agileits w3layouts glyphicon-edit"></i> Cancel</a>
+            </div>
+        </div>
+    </div>
+</form>
+@section Editor{
+    <script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
+    <script>CKEDITOR.replace( 'About' );</script>
+}
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

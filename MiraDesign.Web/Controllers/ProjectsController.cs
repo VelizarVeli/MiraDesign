@@ -10,7 +10,7 @@ namespace MiraDesign.Web.Controllers
     public class ProjectsController : BaseController
 
     {
-        public ProjectsController(MiraDesignContext dbContext) 
+        public ProjectsController(MiraDesignContext dbContext)
             : base(dbContext)
         {
         }
