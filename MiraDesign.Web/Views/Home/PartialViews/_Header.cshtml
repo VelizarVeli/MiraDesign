@@ -1,4 +1,8 @@
-﻿<div class="header agileits w3layouts" id="home">
+﻿@using Microsoft.AspNetCore.Identity
+@using MiraDesign.Models
+@inject SignInManager<MiraDesignUser> SignInManager
+@inject UserManager<MiraDesignUser> UserManager
+<div class="header agileits w3layouts" id="home">
     <div class="container w3layouts">
         <div class="head agileits">
             <nav class="navbar aits navbar-default">
@@ -19,7 +23,17 @@
                         <li><a href="#about" class="agileits w3layouts scroll"><span data-hover="About">За мен</span> </a> </li>
                         <li><a href="#services" class="scroll agileits w3layouts"><span data-hover="Services">Дейности</span> </a></li>
                         <li><a href="#events" class="scroll agileits w3layouts"><span data-hover="Events">Проекти</span> </a></li>
-                        <li><a href="#contact" class=" scroll agileits w3layouts"><span data-hover="Contact">Контакти</span></a></li>
+                        <li><a href="#contact" class="scroll agileits w3layouts"><span data-hover="Contact">Контакти</span></a></li>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li>
+                                <a class="agileits w3layouts">
+                                    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@(this.Url.Action("Index", "Home", new {area = string.Empty}))">
+                                        <button type="submit" class="btn btn-link agileits w3layouts">Излез</button>
+                                    </form>
+                                </a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </nav>

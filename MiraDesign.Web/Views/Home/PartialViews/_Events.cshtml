@@ -1,9 +1,20 @@
-﻿@model DataTransferObjects.ViewModels.HomeViewModel
+﻿@using Microsoft.AspNetCore.Identity
+@using MiraDesign.Models
+@inject SignInManager<MiraDesignUser> SignInManager
+@inject UserManager<MiraDesignUser> UserManager
+
+@model DataTransferObjects.ViewModels.HomeViewModel
 @{ var counter = 0;}
 @{ var length = Model.Projects.Count;}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <ul class="nav text-center navbar-nav wow fadeInDown agileits w3layouts animated text-dark" data-wow-delay=".5s">
+        <li><a asp-area="" asp-controller="Administrator" asp-action="AddProject" class="btn btn-secondary agileits w3layouts"><span data-hover="Contact">Добави проект</span></a></li>
+    </ul>
+}
 <div class="event" id="events">
     <div class="container">
-
         <div class="top-event">
             <h3>Проекти </h3>
             <p>
