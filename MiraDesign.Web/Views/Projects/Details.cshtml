@@ -49,7 +49,7 @@
             <div class="lone-line">
                 <h4>@Model.Subname</h4>
                 <p class="wow fadeInLeft agileits w3layouts animated" data-wow-delay=".5s">
-                    @Model.About
+                    @Html.Raw(System.Web.HttpUtility.HtmlDecode(Model.About))
                 </p>
             </div>
         </div>
