@@ -4,11 +4,11 @@
         <h3>За контакти</h3>
         <div class="col-md-6 agileits w3layouts contact-top">
             <form asp-controller="Mail" asp-action="SendMessage">
-                <input asp-for="@Model.Message.Name" />
-                <span asp-validation-for="@Model.Message.Name" class="text-danger"></span>
-
                 <input asp-for="@Model.Message.Email" />
                 <span asp-validation-for="@Model.Message.Email" class="text-danger"></span>
+
+                <input asp-for="@Model.Message.Name" />
+                <span asp-validation-for="@Model.Message.Name" class="text-danger"></span>
 
                 <input asp-for="@Model.Message.Subject" />
                 <span asp-validation-for="@Model.Message.Subject" class="text-danger"></span>
