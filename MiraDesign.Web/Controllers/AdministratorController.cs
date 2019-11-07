@@ -49,32 +49,30 @@ namespace MiraDesign.Web.Controllers
                 await DbContext.SaveChangesAsync();
             }
 
-            return RedirectToAction( "Index","Home");
+            return RedirectToAction("Index", "Home");
         }
 
         public async Task<IActionResult> EditProject(int id)
         {
-            var projectDto = await DbContext
-               .Projects
-               .Select(p => new AdminProjectBindingModel
-               {
-                   Number = p.Number,
-                   Name = p.Name,
-                   Subname = p.Subname,
-                   About = p.About,
-                   Image550X365 = p.Image550X365,
-                   Image450X398 = p.Image450X398,
-                   Image400X354 = p.Image400X354,
-                   Image1280X478 = p.Image1280X478,
-                   Images = p.Images.Select(i => new Image
-                   {
-                       Name = i.Name,
-                       About = i.About,
-                       Link = i.Link
-                   }).ToList()
-               })
-               .Include(a => a.Images)
-               .SingleOrDefaultAsync(i => i.Id == id);
+            var project = await DbContext.Projects.Include(a => a.Images).SingleOrDefaultAsync(i => i.Id == id);
+            var projectDto = new EditProjectBindingModel
+            {
+                Id = project.Id,
+                Number = project.Number,
+                Name = project.Name,
+                Subname = project.Subname,
+                About = project.About,
+                Image550X365 = project.Image550X365,
+                Image450X398 = project.Image450X398,
+                Image400X354 = project.Image400X354,
+                Image1280X478 = project.Image1280X478,
+                Images = project.Images.Select(i => new Image
+                {
+                    Name = i.Name,
+                    About = i.About,
+                    Link = i.Link
+                }).ToList()
+            };
 
             return View("EditProject", projectDto);
         }
@@ -84,7 +82,7 @@ namespace MiraDesign.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                RedirectToAction("Details", id);
+                RedirectToAction("Details", "Projects", id);
             }
 
             var model = DbContext.Projects.FirstOrDefault(i => i.Id == id);
@@ -97,11 +95,12 @@ namespace MiraDesign.Web.Controllers
             model.Name = incomingModel.Name;
             model.Number = incomingModel.Number;
             model.Subname = incomingModel.Subname;
+            model.About = incomingModel.About;
 
             DbContext.Projects.Update(model);
             await DbContext.SaveChangesAsync();
 
-            return RedirectToAction("Details", id);
+            return RedirectToAction("Details", "Projects", new { id});
         }
     }
 }
