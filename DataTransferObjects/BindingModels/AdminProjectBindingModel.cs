@@ -7,11 +7,6 @@ namespace DataTransferObjects.BindingModels
 {
     public class AdminProjectBindingModel
     {
-        public AdminProjectBindingModel()
-        {
-            Images = new List<Image>();
-        }
-
         public int Id { get; set; }
 
         [Required]
@@ -45,7 +40,7 @@ namespace DataTransferObjects.BindingModels
         [Display(Name = "Image 1280 x 478")]
         public string Image1280X478 { get; set; }
 
-        public ICollection<Image> Images { get; set; }
-
+        [Required]
+        public string Images { get; set; }
     }
 }

@@ -6,6 +6,8 @@ using MiraDesign.Data.Data;
 using MiraDesign.Models;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 
 namespace MiraDesign.Web.Controllers
 {
@@ -24,6 +26,21 @@ namespace MiraDesign.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> AddProjectPost(AdminProjectBindingModel model)
         {
+            var images = new HashSet<Image>();
+            foreach (var imageDTO in model.Images.Split(new[] { '}' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                var property = imageDTO.Split(new[] { '$' }, StringSplitOptions.RemoveEmptyEntries);
+                if (property.Length == 3)
+                {
+                    var image = new Image()
+                    {
+                        Name = property[0],
+                        About = property[1],
+                        Link = property[2]
+                    };
+                }
+
+            }
             var project = new Project
             {
                 About = model.About,
@@ -33,7 +50,8 @@ namespace MiraDesign.Web.Controllers
                 Image1280X478 = model.Image1280X478,
                 Image400X354 = model.Image400X354,
                 Image450X398 = model.Image450X398,
-                Image550X365 = model.Image550X365
+                Image550X365 = model.Image550X365,
+                Images = images
             };
             await DbContext.Projects.AddAsync(project);
             await DbContext.SaveChangesAsync();
@@ -100,7 +118,7 @@ namespace MiraDesign.Web.Controllers
             DbContext.Projects.Update(model);
             await DbContext.SaveChangesAsync();
 
-            return RedirectToAction("Details", "Projects", new { id});
+            return RedirectToAction("Details", "Projects", new { id });
         }
     }
 }
