@@ -1,46 +1,68 @@
-﻿@model DataTransferObjects.BindingModels.EditProjectBindingModel
-
+﻿@model DataTransferObjects.BindingModels.ProjectBindingModel
 <div class="d-flex justify-content-around row">
     <div class="col-sm-12">
         <div class="form-group">
-            <label asp-for="Name" class="control-label"></label>
-            <input asp-for="Name" class="form-control" />
-            <span asp-validation-for="Name" class="text-danger"></span>
+            <label asp-for="ProjectModel.Name" class="control-label"></label>
+            <input asp-for="ProjectModel.Name" class="form-control" />
+            <span asp-validation-for="ProjectModel.Name" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Number" class="control-label"></label>
-            <input asp-for="Number" class="form-control"/>
-            <span asp-validation-for="Number" class="text-danger"></span>
+            <label asp-for="ProjectModel.Number" class="control-label"></label>
+            <input asp-for="ProjectModel.Number" class="form-control" />
+            <span asp-validation-for="ProjectModel.Number" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Subname" class="control-label"></label>
-            <input asp-for="Subname" class="form-control" />
-            <span asp-validation-for="Subname" class="text-danger"></span>
+            <label asp-for="ProjectModel.Subname" class="control-label"></label>
+            <input asp-for="ProjectModel.Subname" class="form-control" />
+            <span asp-validation-for="ProjectModel.Subname" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="About" class="control-label"></label>
-            <textarea asp-for="About" class="form-control" ></textarea>
-            <span asp-validation-for="About" class="text-danger"></span>
+            <label asp-for="ProjectModel.About" class="control-label"></label>
+            <textarea asp-for="ProjectModel.About" class="form-control"></textarea>
+            <span asp-validation-for="ProjectModel.About" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Image550X365" class="control-label"></label>
-            <input asp-for="Image550X365" class="form-control" />
-            <span asp-validation-for="Image550X365" class="text-danger"></span>
+            <label asp-for="ProjectModel.Image550X365" class="control-label"></label>
+            <input asp-for="ProjectModel.Image550X365" class="form-control" />
+            <span asp-validation-for="ProjectModel.Image550X365" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Image450X398" class="control-label"></label>
-            <input asp-for="Image450X398" class="form-control" />
-            <span asp-validation-for="Image450X398" class="text-danger"></span>
+            <label asp-for="ProjectModel.Image450X398" class="control-label"></label>
+            <input asp-for="ProjectModel.Image450X398" class="form-control" />
+            <span asp-validation-for="ProjectModel.Image450X398" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Image400X354" class="control-label"></label>
-            <input asp-for="Image400X354" class="form-control" />
-            <span asp-validation-for="Image400X354" class="text-danger"></span>
+            <label asp-for="ProjectModel.Image400X354" class="control-label"></label>
+            <input asp-for="ProjectModel.Image400X354" class="form-control" />
+            <span asp-validation-for="ProjectModel.Image400X354" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Image1280X478" class="control-label"></label>
-            <input asp-for="Image1280X478" class="form-control" />
-            <span asp-validation-for="Image1280X478" class="text-danger"></span>
+            <label asp-for="ProjectModel.Image1280X478" class="control-label"></label>
+            <input asp-for="ProjectModel.Image1280X478" class="form-control" />
+            <span asp-validation-for="ProjectModel.Image1280X478" class="text-danger"></span>
         </div>
+    </div>
+    <div class="col-sm-12 mt-2">
+        <div class="col">
+            <h4 class="card-title">@Html.DisplayNameFor(model => model.Images)</h4>
+        </div>
+        @foreach (var image in Model.Images)
+        {
+            <div class="col-sm-4 mt-2">
+                <label asp-for="@image.Name" class="control-label"></label>
+                <input asp-for="@image.Name" class="form-control" />
+                <span asp-validation-for="@image.Name" class="text-danger"></span>
+            </div>
+            <div class="col-sm-4 mt-2">
+                <label asp-for="@image.About" class="control-label"></label>
+                <input asp-for="@image.About" class="form-control" />
+                <span asp-validation-for="@image.About" class="text-danger"></span>
+            </div>
+            <div class="col-sm-4 mt-2">
+                <label asp-for="@image.Link" class="control-label"></label>
+                <input asp-for="@image.Link" class="form-control" />
+                <span asp-validation-for="@image.Link" class="text-danger"></span>
+            </div>
+        }
     </div>
 </div>

@@ -12,11 +12,11 @@
 @{ var gallery = Model.Images.ToList();}
 @if (SignInManager.IsSignedIn(User))
 {
-    <div class="d-flex justify-content-around modal-header bg-warning text-white ">
-        <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-secondary"><i class="glyphicon agileits w3layouts glyphicon-arrow-left"></i> Cancel</a>
-        <a asp-area="" asp-controller="Administrator" asp-action="EditProject" asp-route-id="@Model.Id" class="btn btn-sucess"><i class="glyphicon agileits w3layouts glyphicon-edit"> Edit</i></a>
-        <a asp-area="" asp-controller="Administrator" asp-action="DeleteProject" asp-route-id="@Model.Id" class="btn btn-danger"><i class="glyphicon agileits w3layouts glyphicon-alert"> Delete</i></a>
-    </div>
+<div class="d-flex justify-content-around modal-header bg-warning text-white ">
+    <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-secondary"><i class="glyphicon agileits w3layouts glyphicon-arrow-left"></i> Cancel</a>
+    <a asp-area="" asp-controller="Administrator" asp-action="EditProject" asp-route-id="@Model.Id" class="btn btn-sucess"><i class="glyphicon agileits w3layouts glyphicon-edit"> Edit</i></a>
+    <a asp-area="" asp-controller="Administrator" asp-action="DeleteProject" asp-route-id="@Model.Id" class="btn btn-danger"><i class="glyphicon agileits w3layouts glyphicon-alert"> Delete</i></a>
+</div>
 }
 <div class="header agileits w3layouts header-head" id="home">
     <div class="container">

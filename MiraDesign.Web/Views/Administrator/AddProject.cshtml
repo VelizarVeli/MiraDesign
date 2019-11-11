@@ -57,7 +57,7 @@
                 <div class="form-group">
                     <label id="imageCount" asp-for="Images" class="control-label"></label>
                     <input id="input" type="hidden" asp-for="Images" class="form-control" />
-
+                    <div id="addDiv" ></div>
                     <input type="text" name="Name" class="form-control" id="ImageName" placeholder="Name" value="" />
                     <input type="text" name="Info" class="form-control" id="Info" placeholder="Info" value="" />
                     <input type="text" name="Link" class="form-control" id="Link" placeholder="Link" value="" />
@@ -93,6 +93,11 @@
             document.getElementById('Link').value = '';
 
             document.getElementById('input').value += imageName + '$' + info + '$' + link + '}';
+
+            var div = document.createElement("div");
+            div.innerHTML = imageName;
+
+            document.getElementById("addDiv").appendChild(div);
         };
     </script>
 }

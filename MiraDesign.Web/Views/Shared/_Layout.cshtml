@@ -91,6 +91,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             });
         </script>
         <a href="#" id="toTop" class="agileits w3layouts" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+        @RenderSection("Editor", required: false)
     </environment>
     <environment exclude="Development">
         <script type="text/javascript">
@@ -109,6 +110,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             });
         </script>
         <a href="#" id="toTop" class="agileits w3layouts" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+        @RenderSection("Editor", required: false)
+
     </environment>
     @RenderSection("Scripts", required: false)
 </body>

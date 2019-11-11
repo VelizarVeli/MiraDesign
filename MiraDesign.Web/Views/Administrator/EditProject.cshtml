@@ -1,4 +1,4 @@
-﻿@model DataTransferObjects.BindingModels.EditProjectBindingModel
+﻿@model DataTransferObjects.BindingModels.ProjectBindingModel
 
 @{
     ViewData["Title"] = "EditProject";
@@ -16,7 +16,7 @@
                 <partial name="~/Views/Administrator/PartialViews/_EditDetail.cshtml" />
             </div>
             <div class="modal-header bg-info text-white d-flex justify-content-around">
-                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="ProjectModel.Id" />
                 <input type="submit" value="Save" class="btn btn-success" />
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-secondary"><i class="fa fa-close"></i> Cancel</a>
             </div>
@@ -25,7 +25,7 @@
 </form>
 @section Editor{
     <script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
-    <script>CKEDITOR.replace( 'About' );</script>
+    <script>CKEDITOR.replace( 'ProjectModel.About' );</script>
 }
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

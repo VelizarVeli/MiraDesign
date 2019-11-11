@@ -73,17 +73,20 @@ namespace MiraDesign.Web.Controllers
         public async Task<IActionResult> EditProject(int id)
         {
             var project = await DbContext.Projects.Include(a => a.Images).SingleOrDefaultAsync(i => i.Id == id);
-            var projectDto = new EditProjectBindingModel
+            var projectDto = new ProjectBindingModel
             {
-                Id = project.Id,
-                Number = project.Number,
-                Name = project.Name,
-                Subname = project.Subname,
-                About = project.About,
-                Image550X365 = project.Image550X365,
-                Image450X398 = project.Image450X398,
-                Image400X354 = project.Image400X354,
-                Image1280X478 = project.Image1280X478,
+                ProjectModel = new EditProjectBindingModel
+                {
+                    Id = project.Id,
+                    Number = project.Number,
+                    Name = project.Name,
+                    Subname = project.Subname,
+                    About = project.About,
+                    Image550X365 = project.Image550X365,
+                    Image450X398 = project.Image450X398,
+                    Image400X354 = project.Image400X354,
+                    Image1280X478 = project.Image1280X478,
+                },
                 Images = project.Images.Select(i => new Image
                 {
                     Name = i.Name,
@@ -96,7 +99,7 @@ namespace MiraDesign.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ProjectEdit(int id, EditProjectBindingModel incomingModel)
+        public async Task<IActionResult> ProjectEdit(int id, ProjectBindingModel incomingModel)
         {
             if (!ModelState.IsValid)
             {
@@ -105,15 +108,11 @@ namespace MiraDesign.Web.Controllers
 
             var model = DbContext.Projects.FirstOrDefault(i => i.Id == id);
 
-            model.Image1280X478 = incomingModel.Image1280X478;
-            model.Image400X354 = incomingModel.Image400X354;
-            model.Image450X398 = incomingModel.Image450X398;
-            model.Image550X365 = incomingModel.Image550X365;
+            model.Image1280X478 = incomingModel.ProjectModel.Image1280X478;
+            model.Image400X354 = incomingModel.ProjectModel.Image400X354;
+            model.Image450X398 = incomingModel.ProjectModel.Image450X398;
+            model.Image550X365 = incomingModel.ProjectModel.Image550X365;
             model.Images = incomingModel.Images;
-            model.Name = incomingModel.Name;
-            model.Number = incomingModel.Number;
-            model.Subname = incomingModel.Subname;
-            model.About = incomingModel.About;
 
             DbContext.Projects.Update(model);
             await DbContext.SaveChangesAsync();
