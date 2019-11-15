@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
@@ -13,6 +12,8 @@ using MiraDesign.Data.Data;
 using MiraDesign.Models;
 using MiraDesign.Web.Mails;
 using MiraDesign.Web.Mails.Contracts;
+using CloudinaryDotNet;
+using MiraDesign.Common.Extensions;
 
 namespace MiraDesign.Web
 {
@@ -43,6 +44,15 @@ namespace MiraDesign.Web
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<MiraDesignContext>()
                 .AddDefaultTokenProviders();
+
+            Account cloudinaryCredentials = new Account(
+                Configuration["Cloudinary:CloudName"],
+                Configuration["Cloudinary:ApiKey"],
+                Configuration["Cloudinary:ApiSecret"]);
+            Cloudinary cloudinaryUtility = new Cloudinary(cloudinaryCredentials);
+            services.AddSingleton(cloudinaryUtility);
+
+            services.AddTransient<ICloudinaryService, CloudinaryService>();
 
             services.AddMvc(options =>
             {

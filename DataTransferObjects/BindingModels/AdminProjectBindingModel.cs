@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 using MiraDesign.Common.Constants;
-using MiraDesign.Models;
 
 namespace DataTransferObjects.BindingModels
 {
@@ -26,19 +25,19 @@ namespace DataTransferObjects.BindingModels
 
         [Required]
         [Display(Name = "Image 550 x 365")]
-        public string Image550X365 { get; set; }
+        public IFormFile Image550X365 { get; set; }
 
         [Required]
         [Display(Name = "Image 450 x 398")]
-        public string Image450X398 { get; set; }
+        public IFormFile Image450X398 { get; set; }
 
         [Required]
         [Display(Name = "Image 400 x 354")]
-        public string Image400X354 { get; set; }
+        public IFormFile Image400X354 { get; set; }
 
         [Required]
         [Display(Name = "Image 1280 x 478")]
-        public string Image1280X478 { get; set; }
+        public IFormFile Image1280X478 { get; set; }
 
         [Required]
         public string Images { get; set; }

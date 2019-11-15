@@ -11,7 +11,7 @@
             <h5 class="modal-title"><i class="fa fa-tasks"></i> Add Project</h5>
         </div>
         <div class="modal-body">
-            <form asp-action="AddProjectPost">
+            <form asp-action="AddProjectPost" enctype="multipart/form-data">
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
                     <label asp-for="Name" class="control-label"></label>
@@ -35,22 +35,22 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Image550X365" class="control-label"></label>
-                    <input asp-for="Image550X365" class="form-control" />
+                    <input type="file" asp-for="Image550X365" class="form-control" />
                     <span asp-validation-for="Image550X365" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Image450X398" class="control-label"></label>
-                    <input asp-for="Image450X398" class="form-control" />
+                    <input type="file" asp-for="Image450X398" class="form-control" />
                     <span asp-validation-for="Image450X398" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Image400X354" class="control-label"></label>
-                    <input asp-for="Image400X354" class="form-control" />
+                    <input type="file" asp-for="Image400X354" class="form-control" />
                     <span asp-validation-for="Image400X354" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Image1280X478" class="control-label"></label>
-                    <input asp-for="Image1280X478" class="form-control" />
+                    <input type="file" asp-for="Image1280X478" class="form-control" />
                     <span asp-validation-for="Image1280X478" class="text-danger"></span>
                 </div>
 
@@ -60,7 +60,7 @@
                     <div id="addDiv" ></div>
                     <input type="text" name="Name" class="form-control" id="ImageName" placeholder="Name" value="" />
                     <input type="text" name="Info" class="form-control" id="Info" placeholder="Info" value="" />
-                    <input type="text" name="Link" class="form-control" id="Link" placeholder="Link" value="" />
+                    <input type="file" name="Link" class="form-control" id="Link" placeholder="Link" value="" />
                     <div class="modal-footer d-flex justify-content-around">
                         <a onclick="myFunction()" id="addImage" class="btn btn-secondary"><i class="fa fa-window-close"></i> Add image in gallery</a>
                     </div>

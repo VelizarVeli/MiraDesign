@@ -8,15 +8,19 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using MiraDesign.Common.Extensions;
 
 namespace MiraDesign.Web.Controllers
 {
     [Authorize]
     public class AdministratorController : BaseController
     {
-        public AdministratorController(MiraDesignContext dbContext)
+        private readonly ICloudinaryService _cloudinaryService;
+
+        public AdministratorController(MiraDesignContext dbContext, ICloudinaryService cloudinaryService)
             : base(dbContext)
         {
+            _cloudinaryService = cloudinaryService;
         }
         public IActionResult AddProject()
         {
@@ -26,6 +30,10 @@ namespace MiraDesign.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> AddProjectPost(AdminProjectBindingModel model)
         {
+            string pictureUrl = await _cloudinaryService.UploadPictureAsync(
+                model.Image1280X478,
+                model.Name);
+
             var images = new HashSet<Image>();
             foreach (var imageDTO in model.Images.Split(new[] { '}' }, StringSplitOptions.RemoveEmptyEntries))
             {
@@ -47,10 +55,10 @@ namespace MiraDesign.Web.Controllers
                 Name = model.Name,
                 Number = model.Number,
                 Subname = model.Subname,
-                Image1280X478 = model.Image1280X478,
-                Image400X354 = model.Image400X354,
-                Image450X398 = model.Image450X398,
-                Image550X365 = model.Image550X365,
+                Image1280X478 = pictureUrl,
+                Image400X354 = "null1",//model.Image400X354,
+                Image450X398 = "null2",//model.Image450X398,
+                Image550X365 = "null3",//model.Image550X365,
                 Images = images
             };
             await DbContext.Projects.AddAsync(project);
@@ -82,10 +90,10 @@ namespace MiraDesign.Web.Controllers
                     Name = project.Name,
                     Subname = project.Subname,
                     About = project.About,
-                    Image550X365 = project.Image550X365,
-                    Image450X398 = project.Image450X398,
-                    Image400X354 = project.Image400X354,
-                    Image1280X478 = project.Image1280X478,
+                    //Image550X365 = project.Image550X365,
+                    //Image450X398 = project.Image450X398,
+                    //Image400X354 = project.Image400X354,
+                    //Image1280X478 = project.Image1280X478,
                 },
                 Images = project.Images.Select(i => new Image
                 {
@@ -108,10 +116,10 @@ namespace MiraDesign.Web.Controllers
 
             var model = DbContext.Projects.FirstOrDefault(i => i.Id == id);
 
-            model.Image1280X478 = incomingModel.ProjectModel.Image1280X478;
-            model.Image400X354 = incomingModel.ProjectModel.Image400X354;
-            model.Image450X398 = incomingModel.ProjectModel.Image450X398;
-            model.Image550X365 = incomingModel.ProjectModel.Image550X365;
+            //model.Image1280X478 = incomingModel.ProjectModel.Image1280X478;
+            //model.Image400X354 = incomingModel.ProjectModel.Image400X354;
+            //model.Image450X398 = incomingModel.ProjectModel.Image450X398;
+            //model.Image550X365 = incomingModel.ProjectModel.Image550X365;
             model.Images = incomingModel.Images;
 
             DbContext.Projects.Update(model);
