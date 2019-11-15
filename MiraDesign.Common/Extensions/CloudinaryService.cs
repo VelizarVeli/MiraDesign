@@ -3,16 +3,26 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using CloudinaryDotNet.Actions;
+using System.Collections.Generic;
 
 namespace MiraDesign.Common.Extensions
 {
     public class CloudinaryService : ICloudinaryService
     {
         private readonly Cloudinary _cloudinaryUtility;
-
         public CloudinaryService(Cloudinary cloudinaryUtility)
         {
             _cloudinaryUtility = cloudinaryUtility;
+        }
+
+        public void DeletePictureAsync(string fileName)
+        {
+            var delResParams = new DelResParams()
+            {
+                PublicIds = new List<string> { fileName }
+            };
+
+            var delResult = _cloudinaryUtility.DeleteResources(delResParams);
         }
 
         public async Task<string> UploadPictureAsync(IFormFile pictureFile, string fileName)

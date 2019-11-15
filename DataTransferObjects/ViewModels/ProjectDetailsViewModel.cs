@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Microsoft.AspNetCore.Http;
 using MiraDesign.Models;
 
 namespace DataTransferObjects.ViewModels
@@ -14,7 +13,7 @@ namespace DataTransferObjects.ViewModels
 
         public string About { get; set; }
 
-        public IFormFile Image1280X478 { get; set; }
+        public string Image1280X478 { get; set; }
 
         public ICollection<Image> Images { get; set; }
     }

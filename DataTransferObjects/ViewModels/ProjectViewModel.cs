@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-
-namespace DataTransferObjects.ViewModels
+﻿namespace DataTransferObjects.ViewModels
 {
     public class ProjectViewModel
     {
@@ -10,7 +8,7 @@ namespace DataTransferObjects.ViewModels
 
         public string Name { get; set; }
 
-        public IFormFile Image400X354 { get; set; }
+        public string Image400X354 { get; set; }
 
         public string SmallDescription { get; set; }
 

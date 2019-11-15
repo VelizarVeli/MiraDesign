@@ -22,7 +22,7 @@ namespace MiraDesign.Web.Controllers
             {
                 Id = p.Id,
                 Name = p.Name,
-                //Image400X354 = p.Image400X354,
+                Image400X354 = p.Image400X354,
                 SmallDescription = p.About,
                 Number = p.Number,
                 Subname = p.Subname

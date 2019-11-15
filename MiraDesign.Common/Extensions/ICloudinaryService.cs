@@ -6,5 +6,6 @@ namespace MiraDesign.Common.Extensions
    public interface ICloudinaryService
     {
         Task<string> UploadPictureAsync(IFormFile pictureFile, string fileName);
+        void DeletePictureAsync(string fileName);
     }
 }

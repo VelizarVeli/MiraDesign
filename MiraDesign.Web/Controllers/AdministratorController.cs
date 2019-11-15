@@ -30,8 +30,20 @@ namespace MiraDesign.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> AddProjectPost(AdminProjectBindingModel model)
         {
-            string pictureUrl = await _cloudinaryService.UploadPictureAsync(
+            string pictureUrl1280X478 = await _cloudinaryService.UploadPictureAsync(
                 model.Image1280X478,
+                model.Name);
+
+            string pictureUrl400X354 = await _cloudinaryService.UploadPictureAsync(
+                model.Image400X354,
+                model.Name);
+
+            string pictureUrl450X398 = await _cloudinaryService.UploadPictureAsync(
+                model.Image450X398,
+                model.Name);
+
+            string pictureUrl550X365 = await _cloudinaryService.UploadPictureAsync(
+                model.Image550X365,
                 model.Name);
 
             var images = new HashSet<Image>();
@@ -55,10 +67,10 @@ namespace MiraDesign.Web.Controllers
                 Name = model.Name,
                 Number = model.Number,
                 Subname = model.Subname,
-                Image1280X478 = pictureUrl,
-                Image400X354 = "null1",//model.Image400X354,
-                Image450X398 = "null2",//model.Image450X398,
-                Image550X365 = "null3",//model.Image550X365,
+                Image1280X478 = pictureUrl1280X478,
+                Image400X354 = pictureUrl400X354,
+                Image450X398 = pictureUrl450X398,
+                Image550X365 = pictureUrl550X365,
                 Images = images
             };
             await DbContext.Projects.AddAsync(project);
