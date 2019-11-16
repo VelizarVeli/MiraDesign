@@ -53,20 +53,6 @@
                     <input type="file" asp-for="Image1280X478" class="form-control" />
                     <span asp-validation-for="Image1280X478" class="text-danger"></span>
                 </div>
-
-                <div class="form-group">
-                    <label id="imageCount" asp-for="Images" class="control-label"></label>
-                    <input id="input" type="hidden" asp-for="Images" class="form-control" />
-                    <div id="addDiv" ></div>
-                    <input type="text" name="Name" class="form-control" id="ImageName" placeholder="Name" value="" />
-                    <input type="text" name="Info" class="form-control" id="Info" placeholder="Info" value="" />
-                    <input type="file" name="Link" class="form-control" id="Link" placeholder="Link" value="" />
-                    <div class="modal-footer d-flex justify-content-around">
-                        <a onclick="myFunction()" id="addImage" class="btn btn-secondary"><i class="fa fa-window-close"></i> Add image in gallery</a>
-                    </div>
-                </div>
-
-
                 <div class="modal-footer d-flex justify-content-around">
                     <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-secondary"><i class="fa fa-window-close"></i> Close</a>
                     <input type="submit" value="Save" class="btn btn-success" />
@@ -78,28 +64,6 @@
 @section Editor{
     <script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
     <script>CKEDITOR.replace('About');</script>
-
-    <script>
-        let count = 0;
-        function myFunction() {
-            count++;
-            document.getElementById('imageCount').innerHTML = count + " images added";
-
-            let imageName = document.getElementById('ImageName').value;
-            document.getElementById('ImageName').value = '';
-            let info = document.getElementById('Info').value;
-            document.getElementById('Info').value = '';
-            let link = document.getElementById('Link').value;
-            document.getElementById('Link').value = '';
-
-            document.getElementById('input').value += imageName + '$' + info + '$' + link + '}';
-
-            var div = document.createElement("div");
-            div.innerHTML = imageName;
-
-            document.getElementById("addDiv").appendChild(div);
-        };
-    </script>
 }
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

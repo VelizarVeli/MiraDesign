@@ -46,21 +46,21 @@ namespace MiraDesign.Web.Controllers
                 model.Image550X365,
                 model.Name);
 
-            var images = new HashSet<Image>();
-            foreach (var imageDTO in model.Images.Split(new[] { '}' }, StringSplitOptions.RemoveEmptyEntries))
-            {
-                var property = imageDTO.Split(new[] { '$' }, StringSplitOptions.RemoveEmptyEntries);
-                if (property.Length == 3)
-                {
-                    var image = new Image()
-                    {
-                        Name = property[0],
-                        About = property[1],
-                        Link = property[2]
-                    };
-                }
+            //var images = new HashSet<Image>();
+            //foreach (var imageDTO in model.Images.Split(new[] { '}' }, StringSplitOptions.RemoveEmptyEntries))
+            //{
+            //    var property = imageDTO.Split(new[] { '$' }, StringSplitOptions.RemoveEmptyEntries);
+            //    if (property.Length == 3)
+            //    {
+            //        var image = new Image()
+            //        {
+            //            Name = property[0],
+            //            About = property[1],
+            //            Link = property[2]
+            //        };
+            //    }
+            //}
 
-            }
             var project = new Project
             {
                 About = model.About,
@@ -71,9 +71,43 @@ namespace MiraDesign.Web.Controllers
                 Image400X354 = pictureUrl400X354,
                 Image450X398 = pictureUrl450X398,
                 Image550X365 = pictureUrl550X365,
-                Images = images
             };
             await DbContext.Projects.AddAsync(project);
+            await DbContext.SaveChangesAsync();
+            int id = project.Id;
+            return RedirectToAction("AddImagesInGallery", new { id });
+        }
+
+        public IActionResult AddImagesInGallery(int id)
+        {
+            ViewBag.Id = id;
+
+            return View("AddImagesInGallery");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddImagesInGalleryPost(IEnumerable<AddImagesInGalleryBindingModel> model, int id)
+        {
+            var checkId = id;
+            var images = new List<Image>();
+            
+            foreach (var image in model)
+            {
+                //string picture = await _cloudinaryService.UploadPictureAsync(
+                //    image.Link,
+                //    image.Name);
+                var pic = new Image
+                {
+                    Link = "",
+                    Name = image.Name,
+                    About = image.About,
+                    ProjectId = id
+                };
+
+                images.Add(pic);
+            }
+                                 
+            await DbContext.Images.AddRangeAsync(images);
             await DbContext.SaveChangesAsync();
             return RedirectToAction("AddProject");
         }
