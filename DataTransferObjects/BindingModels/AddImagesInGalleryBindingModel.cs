@@ -7,7 +7,7 @@ namespace DataTransferObjects.BindingModels
     public class AddImagesInGalleryBindingModel
     {
         [Required]
-        public string Link { get; set; }
+        public IFormFile Link { get; set; }
 
         [Required]
         [StringLength(LengthConstants.MaxLength, MinimumLength = LengthConstants.NameMinLength)]
@@ -16,5 +16,7 @@ namespace DataTransferObjects.BindingModels
         [Required]
         [StringLength(LengthConstants.MaxLength, MinimumLength = LengthConstants.NameMinLength)]
         public string About { get; set; }
+
+        public int Id { get; set; }
     }
 }

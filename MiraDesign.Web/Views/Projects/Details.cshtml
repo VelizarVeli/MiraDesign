@@ -10,13 +10,14 @@
 }
 @{ int counter = 0 % 3;}
 @{ var gallery = Model.Images.ToList();}
+@{ var about = Model.About.Trim('"');}
 @if (SignInManager.IsSignedIn(User))
 {
-<div class="d-flex justify-content-around modal-header bg-warning text-white ">
-    <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-secondary"><i class="glyphicon agileits w3layouts glyphicon-arrow-left"></i> Cancel</a>
-    <a asp-area="" asp-controller="Administrator" asp-action="EditProject" asp-route-id="@Model.Id" class="btn btn-sucess"><i class="glyphicon agileits w3layouts glyphicon-edit"> Edit</i></a>
-    <a asp-area="" asp-controller="Administrator" asp-action="DeleteProject" asp-route-id="@Model.Id" class="btn btn-danger"><i class="glyphicon agileits w3layouts glyphicon-alert"> Delete</i></a>
-</div>
+    <div class="d-flex justify-content-around modal-header bg-warning text-white ">
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-secondary"><i class="glyphicon agileits w3layouts glyphicon-arrow-left"></i> Cancel</a>
+        <a asp-area="" asp-controller="Administrator" asp-action="EditProject" asp-route-id="@Model.Id" class="btn btn-sucess"><i class="glyphicon agileits w3layouts glyphicon-edit"> Edit</i></a>
+        <a asp-area="" asp-controller="Administrator" asp-action="DeleteProject" asp-route-id="@Model.Id" class="btn btn-danger"><i class="glyphicon agileits w3layouts glyphicon-alert"> Delete</i></a>
+    </div>
 }
 <div class="header agileits w3layouts header-head" id="home">
     <div class="container">
@@ -48,8 +49,8 @@
             <img class="img-responsive wow fadeInUp agileits w3layouts animated" src="@Model.Image1280X478" alt="Image" /><br />
             <div class="lone-line">
                 <h4>@Model.Subname</h4>
-                <p class="wow fadeInLeft agileits w3layouts animated" data-wow-delay=".5s">
-                    @Html.Raw(System.Web.HttpUtility.HtmlDecode(Model.About))
+                <p id="quotations" class="wow fadeInLeft agileits w3layouts animated" data-wow-delay=".5s">
+                    @Html.Raw(System.Web.HttpUtility.HtmlDecode(@about))
                 </p>
             </div>
         </div>

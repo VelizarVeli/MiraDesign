@@ -46,21 +46,6 @@ namespace MiraDesign.Web.Controllers
                 model.Image550X365,
                 model.Name);
 
-            //var images = new HashSet<Image>();
-            //foreach (var imageDTO in model.Images.Split(new[] { '}' }, StringSplitOptions.RemoveEmptyEntries))
-            //{
-            //    var property = imageDTO.Split(new[] { '$' }, StringSplitOptions.RemoveEmptyEntries);
-            //    if (property.Length == 3)
-            //    {
-            //        var image = new Image()
-            //        {
-            //            Name = property[0],
-            //            About = property[1],
-            //            Link = property[2]
-            //        };
-            //    }
-            //}
-
             var project = new Project
             {
                 About = model.About,
@@ -75,41 +60,34 @@ namespace MiraDesign.Web.Controllers
             await DbContext.Projects.AddAsync(project);
             await DbContext.SaveChangesAsync();
             int id = project.Id;
-            return RedirectToAction("AddImagesInGallery", new { id });
+            return RedirectToAction("AddImagesInGallery");
         }
 
-        public IActionResult AddImagesInGallery(int id)
+        public IActionResult AddImagesInGallery()
         {
-            ViewBag.Id = id;
 
             return View("AddImagesInGallery");
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddImagesInGalleryPost(IEnumerable<AddImagesInGalleryBindingModel> model, int id)
+        public async Task<IActionResult> AddImagesInGalleryPost(AddImagesInGalleryBindingModel model)
         {
-            var checkId = id;
-            var images = new List<Image>();
-            
-            foreach (var image in model)
-            {
-                //string picture = await _cloudinaryService.UploadPictureAsync(
-                //    image.Link,
-                //    image.Name);
-                var pic = new Image
-                {
-                    Link = "",
-                    Name = image.Name,
-                    About = image.About,
-                    ProjectId = id
-                };
+            var lastProject = DbContext.Projects.LastOrDefault();
 
-                images.Add(pic);
-            }
-                                 
-            await DbContext.Images.AddRangeAsync(images);
+            string picture = await _cloudinaryService.UploadPictureAsync(
+                model.Link,
+                model.Name);
+            var pic = new Image
+            {
+                Link = picture,
+                Name = model.Name,
+                About = model.About,
+                Project = lastProject
+            };
+
+            await DbContext.Images.AddAsync(pic);
             await DbContext.SaveChangesAsync();
-            return RedirectToAction("AddProject");
+            return RedirectToAction("AddImagesInGallery");
         }
 
         public async Task<IActionResult> DeleteProject(int id)

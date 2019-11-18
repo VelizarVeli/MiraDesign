@@ -1000,7 +1000,6 @@ ul.social-in li a i.icon1:hover{
 }
 .lone-line p:before {
     content: "";
-    background: url(../images/qu3.png) no-repeat;
     width: 30px;
     height:24px;
     /*--W3layouts--*/
